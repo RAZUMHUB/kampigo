@@ -1,0 +1,89 @@
+import { ConflictException, Injectable, UnauthorizedException } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
+import { PrismaService } from '../common/prisma/prisma.service';
+import { OtpService } from './otp.service';
+import { OtpPurpose } from '@prisma/client';
+
+@Injectable()
+export class AuthService {
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly otpService: OtpService,
+    private readonly jwtService: JwtService,
+  ) {}
+
+  async requestRegistrationOtp(universityId: string, institutionalEmail: string, ip?: string) {
+    const existing = await this.prisma.user.findUnique({ where: { institutionalEmail } });
+    if (existing) {
+      // For login flows, callers should use requestLoginOtp instead.
+      throw new ConflictException('An account already exists for this email. Try logging in.');
+    }
+    return this.otpService.requestOtp({
+      universityId,
+      institutionalEmail,
+      purpose: OtpPurpose.REGISTRATION,
+      requestIp: ip,
+    });
+  }
+
+  async requestLoginOtp(universityId: string, institutionalEmail: string, ip?: string) {
+    return this.otpService.requestOtp({
+      universityId,
+      institutionalEmail,
+      purpose: OtpPurpose.LOGIN,
+      requestIp: ip,
+    });
+  }
+
+  async verifyRegistration(params: {
+    universityId: string;
+    institutionalEmail: string;
+    code: string;
+    displayName: string;
+  }) {
+    await this.otpService.verifyOtp(params);
+
+    const user = await this.prisma.user.upsert({
+      where: { institutionalEmail: params.institutionalEmail },
+      create: {
+        universityId: params.universityId,
+        institutionalEmail: params.institutionalEmail,
+        displayName: params.displayName,
+      },
+      update: {},
+    });
+
+    await this.prisma.wallet.upsert({
+      where: { userId: user.id },
+      create: { userId: user.id, universityId: user.universityId },
+      update: {},
+    });
+
+    return this.issueTokens(user.id, user.universityId, user.role);
+  }
+
+  async verifyLogin(params: { universityId: string; institutionalEmail: string; code: string }) {
+    await this.otpService.verifyOtp(params);
+
+    const user = await this.prisma.user.findUnique({
+      where: { institutionalEmail: params.institutionalEmail },
+    });
+    if (!user || user.universityId !== params.universityId) {
+      throw new UnauthorizedException('Account not found for this university');
+    }
+    return this.issueTokens(user.id, user.universityId, user.role);
+  }
+
+  private issueTokens(userId: string, universityId: string, role: string) {
+    const payload = { sub: userId, universityId, role };
+    const accessToken = this.jwtService.sign(payload, {
+      secret: process.env.JWT_ACCESS_SECRET ?? 'dev-only-insecure-secret',
+      expiresIn: '15m',
+    });
+    const refreshToken = this.jwtService.sign(payload, {
+      secret: process.env.JWT_REFRESH_SECRET ?? 'dev-only-insecure-refresh-secret',
+      expiresIn: '30d',
+    });
+    return { accessToken, refreshToken };
+  }
+}

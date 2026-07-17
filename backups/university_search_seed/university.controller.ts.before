@@ -1,0 +1,37 @@
+import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { UniversityService } from './university.service';
+import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
+import { RolesGuard } from '../common/guards/roles.guard';
+import { Roles } from '../common/decorators/roles.decorator';
+import { CurrentUser, AuthenticatedUser } from '../common/decorators/current-user.decorator';
+import { CreateApprovedDomainDto } from './dto/create-domain.dto';
+
+@Controller('universities')
+export class UniversityController {
+  constructor(private readonly universityService: UniversityService) {}
+
+  // Public - powers the registration "select your university" step.
+  @Get()
+  list() {
+    return this.universityService.listActiveUniversities();
+  }
+
+  @Get(':id/campuses')
+  campuses(@Param('id') id: string) {
+    return this.universityService.listCampuses(id);
+  }
+
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles('UNIVERSITY_ADMIN', 'PLATFORM_SUPER_ADMIN')
+  @Get('me/domains')
+  myDomains(@CurrentUser() user: AuthenticatedUser) {
+    return this.universityService.listApprovedDomains(user.universityId);
+  }
+
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles('UNIVERSITY_ADMIN', 'PLATFORM_SUPER_ADMIN')
+  @Post('me/domains')
+  addDomain(@CurrentUser() user: AuthenticatedUser, @Body() dto: CreateApprovedDomainDto) {
+    return this.universityService.addApprovedDomain(user.universityId, dto.domain);
+  }
+}

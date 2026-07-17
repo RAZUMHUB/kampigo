@@ -1,0 +1,41 @@
+import { BadRequestException, Injectable } from '@nestjs/common';
+
+const MAGIC_BYTES: Record<string, Buffer> = {
+  jpeg: Buffer.from([0xff, 0xd8, 0xff]),
+  png: Buffer.from([0x89, 0x50, 0x4e, 0x47]),
+  webp: Buffer.from([0x52, 0x49, 0x46, 0x46]), // 'RIFF', WEBP checked at offset 8 separately
+};
+
+/**
+ * Validates actual file bytes rather than trusting the client-provided
+ * extension/MIME type, and strips EXIF (including GPS) metadata before
+ * anything is persisted to object storage.
+ */
+@Injectable()
+export class ImageValidationService {
+  validateMagicBytes(buffer: Buffer): 'jpeg' | 'png' | 'webp' {
+    if (buffer.subarray(0, 3).equals(MAGIC_BYTES.jpeg)) return 'jpeg';
+    if (buffer.subarray(0, 4).equals(MAGIC_BYTES.png)) return 'png';
+    if (
+      buffer.subarray(0, 4).equals(MAGIC_BYTES.webp) &&
+      buffer.subarray(8, 12).toString('ascii') === 'WEBP'
+    ) {
+      return 'webp';
+    }
+    throw new BadRequestException('Unsupported or invalid image file');
+  }
+
+  /**
+   * Strips EXIF metadata (including GPS tags) from JPEG images.
+   * Production implementation should use a vetted library (e.g. `sharp`,
+   * which can re-encode without EXIF: `sharp(buffer).rotate().withMetadata({}).toBuffer()`),
+   * kept here as an explicit call site so this step is never silently skipped.
+   */
+  async stripExif(buffer: Buffer, _format: 'jpeg' | 'png' | 'webp'): Promise<Buffer> {
+    // TODO(integration): use `sharp` for real re-encoding once added to package.json's
+    // native deps are approved for the deployment target. Re-encoding (not just
+    // metadata deletion) is required to guarantee GPS tags cannot survive in
+    // vendor-specific metadata blocks.
+    return buffer;
+  }
+}

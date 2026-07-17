@@ -1,0 +1,107 @@
+import 'dotenv/config';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
+async function main() {
+  const demoUniversity = await prisma.university.upsert({
+    where: {
+      slug: 'demo-university',
+    },
+    update: {
+      name: 'Demo University',
+      status: 'ACTIVE',
+    },
+    create: {
+      name: 'Demo University',
+      slug: 'demo-university',
+      status: 'ACTIVE',
+    },
+  });
+
+  await prisma.approvedEmailDomain.upsert({
+    where: {
+      universityId_domain: {
+        universityId: demoUniversity.id,
+        domain: 'demo-university.edu',
+      },
+    },
+    update: {},
+    create: {
+      universityId: demoUniversity.id,
+      domain: 'demo-university.edu',
+    },
+  });
+
+  await prisma.campus.upsert({
+    where: {
+      id: 'demo-main-campus',
+    },
+    update: {
+      universityId: demoUniversity.id,
+      name: 'Main Campus',
+    },
+    create: {
+      id: 'demo-main-campus',
+      universityId: demoUniversity.id,
+      name: 'Main Campus',
+    },
+  });
+
+  const parulUniversity = await prisma.university.upsert({
+    where: {
+      slug: 'parul-university',
+    },
+    update: {
+      name: 'Parul University',
+      status: 'ACTIVE',
+    },
+    create: {
+      name: 'Parul University',
+      slug: 'parul-university',
+      status: 'ACTIVE',
+    },
+  });
+
+  await prisma.approvedEmailDomain.upsert({
+    where: {
+      universityId_domain: {
+        universityId: parulUniversity.id,
+        domain: 'paruluniversity.ac.in',
+      },
+    },
+    update: {},
+    create: {
+      universityId: parulUniversity.id,
+      domain: 'paruluniversity.ac.in',
+    },
+  });
+
+  await prisma.campus.upsert({
+    where: {
+      id: '8c66e942-6a5e-4f37-9fd5-87e12d410001',
+    },
+    update: {
+      universityId: parulUniversity.id,
+      name: 'Vadodara Campus',
+    },
+    create: {
+      id: '8c66e942-6a5e-4f37-9fd5-87e12d410001',
+      universityId: parulUniversity.id,
+      name: 'Vadodara Campus',
+    },
+  });
+
+  console.log('Seed completed');
+  console.log(`Demo University ID=${demoUniversity.id}`);
+  console.log(`Parul University ID=${parulUniversity.id}`);
+}
+
+main()
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });

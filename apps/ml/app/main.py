@@ -1,0 +1,10 @@
+from fastapi import FastAPI
+
+app = FastAPI(title="LostFound ML Service")
+
+
+@app.get("/")
+def root():
+    return {
+        "message": "LostFound ML Service Running"
+    }

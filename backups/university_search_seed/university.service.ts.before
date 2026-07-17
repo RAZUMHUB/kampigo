@@ -1,0 +1,38 @@
+import { Injectable } from '@nestjs/common';
+import { PrismaService } from '../common/prisma/prisma.service';
+
+@Injectable()
+export class UniversityService {
+  constructor(private readonly prisma: PrismaService) {}
+
+  /** Public directory used by the "select your university" registration step. */
+  async listActiveUniversities() {
+    return this.prisma.university.findMany({
+      where: { status: 'ACTIVE' },
+      select: { id: true, name: true, slug: true },
+      orderBy: { name: 'asc' },
+    });
+  }
+
+  async listCampuses(universityId: string) {
+    return this.prisma.campus.findMany({ where: { universityId } });
+  }
+
+  async listApprovedDomains(universityId: string) {
+    return this.prisma.approvedEmailDomain.findMany({ where: { universityId } });
+  }
+
+  async addApprovedDomain(universityId: string, domain: string) {
+    return this.prisma.approvedEmailDomain.create({
+      data: { universityId, domain: domain.toLowerCase() },
+    });
+  }
+
+  async addCampus(universityId: string, name: string) {
+    return this.prisma.campus.create({ data: { universityId, name } });
+  }
+
+  async addBuilding(campusId: string, name: string) {
+    return this.prisma.building.create({ data: { campusId, name } });
+  }
+}

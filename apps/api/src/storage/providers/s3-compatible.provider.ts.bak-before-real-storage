@@ -1,0 +1,45 @@
+import { Injectable, Logger } from '@nestjs/common';
+import { StorageProvider } from '../storage.provider';
+
+/**
+ * Works against both AWS S3 and Cloudflare R2 (R2 exposes an S3-compatible
+ * API). Configure via STORAGE_ENDPOINT / STORAGE_BUCKET / STORAGE_ACCESS_KEY /
+ * STORAGE_SECRET_KEY / STORAGE_REGION.
+ *
+ * NOTE: this is a thin wrapper written against the AWS SDK v3 surface
+ * (@aws-sdk/client-s3, @aws-sdk/s3-request-presigner). Those packages are
+ * listed in package.json but the actual SDK calls are stubbed with clear
+ * TODOs pending real credentials, per the project's phased integration plan.
+ */
+@Injectable()
+export class S3CompatibleStorageProvider implements StorageProvider {
+  private readonly logger = new Logger('S3CompatibleStorageProvider');
+  private readonly bucket = process.env.STORAGE_BUCKET ?? 'lostfound-dev';
+  private readonly configured = Boolean(process.env.STORAGE_ACCESS_KEY);
+
+  async putObject(key: string, _body: Buffer, contentType: string): Promise<void> {
+    if (!this.configured) {
+      this.logger.warn(`Storage not configured - skipping real upload for key=${key}`);
+      return;
+    }
+    // TODO(integration): new S3Client({...}).send(new PutObjectCommand({ Bucket: this.bucket, Key: key, Body: _body, ContentType: contentType }))
+    this.logger.log(`putObject bucket=${this.bucket} key=${key} contentType=${contentType}`);
+  }
+
+  async getSignedUrl(key: string, expiresInSeconds = 900): Promise<string> {
+    if (!this.configured) {
+      return `https://storage.local.dev/${this.bucket}/${key}?mock=true&ttl=${expiresInSeconds}`;
+    }
+    // TODO(integration): getSignedUrl(client, new GetObjectCommand({ Bucket, Key }), { expiresIn: expiresInSeconds })
+    return `https://${this.bucket}.storage.example.com/${key}`;
+  }
+
+  async deleteObject(key: string): Promise<void> {
+    if (!this.configured) {
+      this.logger.warn(`Storage not configured - skipping delete for key=${key}`);
+      return;
+    }
+    // TODO(integration): client.send(new DeleteObjectCommand({ Bucket: this.bucket, Key: key }))
+    this.logger.log(`deleteObject bucket=${this.bucket} key=${key}`);
+  }
+}
