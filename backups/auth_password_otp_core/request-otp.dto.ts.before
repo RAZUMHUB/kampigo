@@ -1,9 +1,0 @@
-import { IsEmail, IsUUID } from 'class-validator';
-
-export class RequestOtpDto {
-  @IsUUID()
-  universityId: string;
-
-  @IsEmail()
-  institutionalEmail: string;
-}
