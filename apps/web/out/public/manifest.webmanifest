@@ -1,9 +1,0 @@
-{
-  "name": "Campus Lost & Found",
-  "short_name": "Lost&Found",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#faf9f6",
-  "theme_color": "#282f4d",
-  "icons": []
-}
