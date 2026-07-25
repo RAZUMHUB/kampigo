@@ -19,6 +19,9 @@ import { StorageModule } from './storage/storage.module';
 import { EmailModule } from './email/email.module';
 import { SearchModule } from './search/search.module';
 import { HealthModule } from './health/health.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { RidesModule } from './rides/rides.module';
+import { RentalsModule } from './rentals/rentals.module';
 
 @Module({
   imports: [
@@ -45,6 +48,9 @@ import { HealthModule } from './health/health.module';
     StorageModule,
     EmailModule,
     SearchModule,
+    DashboardModule,
+    RidesModule,
+    RentalsModule,
   ],
   providers: [{ provide: APP_GUARD, useClass: ThrottlerGuard }],
 })

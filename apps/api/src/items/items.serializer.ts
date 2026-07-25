@@ -6,6 +6,9 @@
  * analogous rule on verification answers).
  */
 export function toPublicLostItem(item: any, includeOwnerOnlyFields = false) {
+  console.log("\n===== LOST ITEM =====");
+  console.dir(item, { depth: null });
+
   const { privateDetails, ...rest } = item;
   return {
     ...rest,
@@ -14,5 +17,8 @@ export function toPublicLostItem(item: any, includeOwnerOnlyFields = false) {
 }
 
 export function toPublicFoundItem(item: any) {
+  console.log("\n===== FOUND ITEM =====");
+  console.dir(item, { depth: null });
+
   return { ...item };
 }

@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.test.lostfound',
-  appName: 'LostFound',
+  appId: 'com.campigo.app',
+  appName: 'Campigo',
   webDir: 'public'
 };
 

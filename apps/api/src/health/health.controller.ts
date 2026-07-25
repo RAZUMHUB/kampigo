@@ -10,7 +10,7 @@ export class HealthController {
   health() {
     return {
       status: 'ok',
-      service: 'lostfound-api',
+      service: 'campigo-api',
       timestamp: new Date().toISOString(),
     };
   }

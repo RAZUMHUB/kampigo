@@ -9,14 +9,24 @@ import {
   Sparkles,
   User,
   PackageSearch,
+  Car,
+  ShoppingBag,
 } from 'lucide-react';
 import { clsx } from 'clsx';
 
-const NAV_ITEMS = [
+const DESKTOP_NAV_ITEMS = [
+  { href: '/', label: 'Home', icon: Home },
+  { href: '/search', label: 'Lost & Found', icon: Search },
+  { href: '/ride-sharing', label: 'Ride Sharing', icon: Car },
+  { href: '/clothes-rental', label: 'Clothes Rental', icon: ShoppingBag },
+  { href: '/report', label: 'Report', icon: PlusCircle, primary: true },
+  { href: '/profile', label: 'Profile', icon: User },
+];
+
+const MOBILE_NAV_ITEMS = [
   { href: '/', label: 'Home', icon: Home },
   { href: '/search', label: 'Search', icon: Search },
   { href: '/report', label: 'Report', icon: PlusCircle, primary: true },
-  { href: '/matches', label: 'Matches', icon: Sparkles },
   { href: '/profile', label: 'Profile', icon: User },
 ];
 
@@ -46,16 +56,16 @@ export function BottomNav() {
 
             <div>
               <p className="font-display text-base font-bold leading-tight text-ink-900">
-                Campus Lost & Found
+                Campigo
               </p>
               <p className="text-xs text-ink-400">
-                Find it. Return it. Reconnect.
+                Everything Students Need. One App.
               </p>
             </div>
           </Link>
 
           <nav className="flex items-center gap-1" aria-label="Primary">
-            {NAV_ITEMS.map(({ href, label, icon: Icon, primary }) => {
+            {DESKTOP_NAV_ITEMS.map(({ href, label, icon: Icon, primary }) => {
               const isActive = isPathActive(pathname, href);
 
               if (primary) {
@@ -96,7 +106,7 @@ export function BottomNav() {
         className="fixed inset-x-0 bottom-0 z-50 mx-auto flex max-w-lg items-end justify-between border-t border-ink-100 bg-surface-raised/95 px-4 pb-[calc(env(safe-area-inset-bottom)+0.5rem)] pt-2 backdrop-blur md:hidden"
         aria-label="Mobile primary"
       >
-        {NAV_ITEMS.map(({ href, label, icon: Icon, primary }) => {
+        {MOBILE_NAV_ITEMS.map(({ href, label, icon: Icon, primary }) => {
           const isActive = isPathActive(pathname, href);
 
           if (primary) {

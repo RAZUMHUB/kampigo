@@ -68,7 +68,11 @@ export class OtpService {
     const approved = await this.prisma.approvedEmailDomain.findFirst({
       where: { universityId, domain },
     });
-    if (!approved) {
+    const isDevAllowed =
+      process.env.NODE_ENV !== 'production' &&
+      institutionalEmail === 'princekumar085167@gmail.com';
+
+    if (!approved && !isDevAllowed) {
       throw new ForbiddenException(
         'This email domain is not approved for the selected university',
       );

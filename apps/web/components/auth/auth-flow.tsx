@@ -6,6 +6,24 @@ import { useRouter } from 'next/navigation';
 import { api } from '@/lib/api-client';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Check, ChevronsUpDown } from 'lucide-react';
+
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from '@/components/ui/command';
+
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+
+import { cn } from '@/lib/utils';
 
 interface University {
   id: string;
@@ -41,6 +59,7 @@ export function AuthFlow() {
   const [password, setPassword] = useState('');
   const [code, setCode] = useState('');
   const [cooldown, setCooldown] = useState(0);
+  const [universityOpen, setUniversityOpen] = useState(false);
 
   const {
     data: universities,
@@ -205,7 +224,7 @@ export function AuthFlow() {
           <div className="mx-auto w-full max-w-md">
             <div className="mb-6">
               <p className="text-sm font-medium text-ink-400">
-                Campus Lost &amp; Found
+                Campigo
               </p>
 
               <h1 className="mt-2 font-display text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">
@@ -256,22 +275,59 @@ export function AuthFlow() {
                 {universitiesLoading ? (
                   <Skeleton className="h-40 w-full" />
                 ) : (
-                  <div className="grid gap-3">
-                    {universities?.map((item) => (
-                      <button
+                  <Popover open={universityOpen} onOpenChange={setUniversityOpen}>
+                    <PopoverTrigger asChild>
+                      <Button
                         type="button"
-                        key={item.id}
-                        onClick={() => {
-                          setUniversity(item);
-                          setCampus(null);
-                          setStage('email');
-                        }}
-                        className="rounded-xl border border-ink-100 bg-surface px-4 py-4 text-left text-sm font-medium text-ink-800 transition hover:border-ink-300 hover:bg-ink-50"
+                        variant="outline"
+                        role="combobox"
+                        aria-expanded={universityOpen}
+                        className="h-12 w-full justify-between"
                       >
-                        {item.name}
-                      </button>
-                    ))}
-                  </div>
+                        {university
+                          ? university.name
+                          : 'Search and select your university'}
+
+                        <ChevronsUpDown className="ml-2 h-4 w-4 opacity-50" />
+                      </Button>
+                    </PopoverTrigger>
+
+                    <PopoverContent className="w-[420px] p-0">
+                      <Command>
+                        <CommandInput placeholder="Search university..." />
+
+                        <CommandList>
+                          <CommandEmpty>No university found.</CommandEmpty>
+
+                          <CommandGroup>
+                            {universities?.map((item) => (
+                              <CommandItem
+                                key={item.id}
+                                value={item.name}
+                                onSelect={() => {
+                                  setUniversity(item);
+                                  setCampus(null);
+                                  setStage('email');
+                                  setUniversityOpen(false);
+                                }}
+                              >
+                                <Check
+                                  className={cn(
+                                    'mr-2 h-4 w-4',
+                                    university?.id === item.id
+                                      ? 'opacity-100'
+                                      : 'opacity-0'
+                                  )}
+                                />
+
+                                {item.name}
+                              </CommandItem>
+                            ))}
+                          </CommandGroup>
+                        </CommandList>
+                      </Command>
+                    </PopoverContent>
+                  </Popover>
                 )}
               </div>
             )}

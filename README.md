@@ -1,7 +1,24 @@
-# Campus Lost & Found
+# Kampigo
 
-A private, university-scoped lost & found platform. Every university is an isolated tenant; a
-student from University A can never see, search, or be notified about University B's data.
+> AI-powered, multi-tenant Lost & Found platform for universities.
+
+Kampigo helps students, faculty, and university administrators report, discover, and recover lost items through AI-assisted image matching, intelligent search, secure communication, and university-scoped access control.
+
+Built as a mobile-first Progressive Web App (PWA), Kampigo combines a modern web application, a scalable backend, and a dedicated machine learning service to make campus lost-and-found management faster, safer, and more reliable.
+
+---
+
+## ✨ Features
+
+- 🔐 Multi-tenant university architecture
+- 🤖 AI-powered image and text matching
+- 📱 Mobile-first Progressive Web App (PWA)
+- 📧 Secure Email OTP authentication
+- 💬 Real-time messaging using WebSockets
+- 💰 Wallet and paid priority alerts
+- 🔔 Push notification architecture
+- 🖼 Secure image upload pipeline
+- 👨‍💼 University administration dashboard
 
 ## Architecture
 

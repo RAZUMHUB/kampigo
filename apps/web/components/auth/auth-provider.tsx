@@ -26,11 +26,12 @@ export function AuthProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [authenticated, setAuthenticated] = useState(
-    api.hasAccessToken(),
-  );
+  const [authenticated, setAuthenticated] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+
     const sync = () => {
       setAuthenticated(api.hasAccessToken());
     };
@@ -56,6 +57,10 @@ export function AuthProvider({
     }),
     [authenticated],
   );
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <AuthContext.Provider value={value}>

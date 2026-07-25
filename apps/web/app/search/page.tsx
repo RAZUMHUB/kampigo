@@ -25,6 +25,11 @@ export default function SearchPage() {
     queryFn: () => api.get(`/search/${tab}?q=${encodeURIComponent(query)}`),
   });
 
+
+  if (data) {
+    console.log("Search Items:", data.items);
+  }
+
   return (
     <AuthGuard>
     <div className="px-4 py-6 sm:px-6 md:px-8 md:py-10">

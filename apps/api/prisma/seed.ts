@@ -92,6 +92,71 @@ async function main() {
     },
   });
 
+
+  const demoStudent = await prisma.user.upsert({
+    where: {
+      institutionalEmail: 'student@paruluniversity.ac.in',
+    },
+    update: {
+      displayName: 'Demo Student',
+    },
+    create: {
+      institutionalEmail: 'student@paruluniversity.ac.in',
+      displayName: 'Demo Student',
+      universityId: parulUniversity.id,
+      campusId: '8c66e942-6a5e-4f37-9fd5-87e12d410001',
+    },
+  });
+
+  const existingLost = await prisma.lostItem.count({
+    where: {
+      ownerId: demoStudent.id,
+    },
+  });
+
+  if (existingLost === 0) {
+    await prisma.lostItem.createMany({
+      data: [
+        {
+          universityId: parulUniversity.id,
+          ownerId: demoStudent.id,
+          campusId: '8c66e942-6a5e-4f37-9fd5-87e12d410001',
+          title: 'Black Wallet',
+          description: 'Lost near Library',
+          lostDate: new Date(),
+        },
+        {
+          universityId: parulUniversity.id,
+          ownerId: demoStudent.id,
+          campusId: '8c66e942-6a5e-4f37-9fd5-87e12d410001',
+          title: 'Student ID Card',
+          description: 'Lost near Canteen',
+          lostDate: new Date(),
+          status: 'RECOVERED',
+        },
+      ],
+    });
+  }
+
+  const existingFound = await prisma.foundItem.count({
+    where: {
+      finderId: demoStudent.id,
+    },
+  });
+
+  if (existingFound === 0) {
+    await prisma.foundItem.create({
+      data: {
+        universityId: parulUniversity.id,
+        finderId: demoStudent.id,
+        campusId: '8c66e942-6a5e-4f37-9fd5-87e12d410001',
+        title: 'Blue Water Bottle',
+        description: 'Found outside Block A',
+        foundDate: new Date(),
+      },
+    });
+  }
+
   console.log('Seed completed');
   console.log(`Demo University ID=${demoUniversity.id}`);
   console.log(`Parul University ID=${parulUniversity.id}`);

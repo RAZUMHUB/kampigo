@@ -168,7 +168,7 @@ export function WalletPanel() {
           key: checkoutKeyId,
           amount: order.amount,
           currency: order.currency,
-          name: 'Campus Lost & Found',
+          name: 'Campigo',
           description: 'Wallet top-up',
           order_id: order.id,
           handler: () => {

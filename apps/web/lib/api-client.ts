@@ -60,8 +60,18 @@ async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
       clearTokens();
     }
 
-    const body = await res.json().catch(() => ({ message: res.statusText }));
-    throw new ApiError(res.status, body.message ?? 'Request failed');
+    const body = await res.json().catch(() => ({
+      message: res.statusText,
+    }));
+
+    const message =
+      typeof body?.message === 'string'
+        ? body.message
+        : typeof body?.message?.message === 'string'
+          ? body.message.message
+          : res.statusText;
+
+    throw new ApiError(res.status, message);
   }
   if (res.status === 204) return undefined as T;
   return res.json();
@@ -73,6 +83,26 @@ export const api = {
     request<T>(path, { method: 'POST', body: body ? JSON.stringify(body) : undefined }),
   patch: <T>(path: string, body?: unknown) =>
     request<T>(path, { method: 'PATCH', body: body ? JSON.stringify(body) : undefined }),
+
+  upload: async <T>(path: string, formData: FormData) => {
+    const token =
+      typeof window === 'undefined'
+        ? null
+        : window.localStorage.getItem('accessToken');
+
+    const res = await fetch(`${API_BASE_URL}${path}`, {
+      method: 'POST',
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+      body: formData,
+    });
+
+    if (!res.ok) {
+      throw new Error(await res.text());
+    }
+
+    return res.json() as Promise<T>;
+  },
+
   hasAccessToken,
   setTokens,
   clearTokens,

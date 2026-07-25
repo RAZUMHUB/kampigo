@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { EmailService } from './email.service';
-import { GmailEmailProvider } from './providers/gmail.provider';
+import { ResendEmailProvider } from './providers/resend.provider';
 
 @Module({
   providers: [
     EmailService,
-    GmailEmailProvider,
+    ResendEmailProvider,
   ],
   exports: [
     EmailService,

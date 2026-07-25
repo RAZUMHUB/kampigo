@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss';
 
-// Design tokens for the Campus Lost & Found product. Deliberately avoiding
+// Design tokens for the Campigo product. Deliberately avoiding
 // the generic "cream + terracotta" or "dark + neon" AI-default palettes:
 // this uses a deep indigo (trust/security, matches a campus ID-card feel)
 // paired with a warm amber accent (hope/recovery) and a warm neutral gray.

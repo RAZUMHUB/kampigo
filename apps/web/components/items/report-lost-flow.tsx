@@ -79,10 +79,11 @@ export function ReportLostFlow() {
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [form, setForm] = useState<FormState>(INITIAL_STATE);
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
 
   const submitMutation = useMutation({
-    mutationFn: () =>
-      api.post<{ item: { id: string }; quickMatches: any[] }>('/lost-items', {
+    mutationFn: async () => {
+      const result = await api.post<{ item: { id: string }; quickMatches: any[] }>('/lost-items', {
         categoryId: form.categoryId || undefined,
         title: form.title,
         description: form.description,
@@ -100,7 +101,20 @@ export function ReportLostFlow() {
         privateDetails: Object.fromEntries(
           Object.entries(form.privateDetails).filter(([, value]) => value),
         ),
-      }),
+      });
+
+      if (selectedImage) {
+        const formData = new FormData();
+        formData.append('file', selectedImage);
+
+        await api.upload(
+          `/lost-items/${result.item.id}/images`,
+          formData,
+        );
+      }
+
+      return result;
+    },
     onSuccess: (data) => {
       router.push(`/report/lost/success?itemId=${data.item.id}`);
     },
@@ -211,6 +225,17 @@ export function ReportLostFlow() {
                       value={form.description}
                       onChange={(event) =>
                         update('description', event.target.value)
+                      }
+                    />
+                  </Field>
+
+                  <Field label="Item photo (optional)">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="input"
+                      onChange={(event) =>
+                        setSelectedImage(event.target.files?.[0] ?? null)
                       }
                     />
                   </Field>

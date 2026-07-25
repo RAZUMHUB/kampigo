@@ -41,7 +41,7 @@ export class GmailEmailProvider implements EmailProvider {
       const info = await transporter.sendMail({
         from:
           process.env.EMAIL_FROM_ADDRESS ??
-          `LostFound <${user}>`,
+          `Campigo <${user}>`,
         to: params.to,
         subject: params.subject,
         html: params.html,
