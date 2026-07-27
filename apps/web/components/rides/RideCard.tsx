@@ -5,7 +5,9 @@ import {
   Calendar,
   Car,
   Clock3,
+  Heart,
   MapPin,
+  Share2,
   Star,
   Users,
 } from "lucide-react";
@@ -56,127 +58,140 @@ export function RideCard({
   }[status];
 
   return (
-    <Card className="p-6 transition hover:-translate-y-1 hover:shadow-lg">
-      <div className="flex items-start justify-between">
+    <Card className="group overflow-hidden rounded-3xl border transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
 
-        <div className="flex gap-4">
+      <div className="p-6">
 
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 font-bold">
-            {driverName[0]}
+        <div className="flex items-start justify-between">
+
+          <div className="flex items-center gap-4">
+
+            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-lg font-bold">
+              {driverName.charAt(0).toUpperCase()}
+            </div>
+
+            <div>
+
+              <div className="flex items-center gap-2">
+
+                <h3 className="text-lg font-semibold">
+                  {driverName}
+                </h3>
+
+                {verified && (
+                  <BadgeCheck className="h-4 w-4 text-blue-600" />
+                )}
+
+              </div>
+
+              <div className="mt-1 flex items-center gap-1 text-sm text-muted-foreground">
+                <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                {rating}
+              </div>
+
+            </div>
+
           </div>
 
-          <div>
+          <div className="flex gap-2">
 
-            <div className="flex items-center gap-2">
+            <Button size="icon" variant="ghost">
+              <Heart className="h-4 w-4" />
+            </Button>
 
-              <h3 className="font-semibold">
-                {driverName}
-              </h3>
-
-              {verified && (
-                <BadgeCheck className="h-4 w-4 text-blue-600" />
-              )}
-
-            </div>
-
-            <div className="mt-1 flex items-center gap-1 text-sm text-muted-foreground">
-              <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-              {rating}
-            </div>
+            <Button size="icon" variant="ghost">
+              <Share2 className="h-4 w-4" />
+            </Button>
 
           </div>
 
         </div>
 
-        <div className="text-right">
+        <div className="mt-8 flex items-center gap-6">
 
-          <div className="font-bold">
-            ₹{price}/seat
+          <div className="flex-1">
+
+            <p className="text-xs uppercase tracking-wide text-muted-foreground">
+              Pickup
+            </p>
+
+            <h4 className="font-semibold">
+              {pickup}
+            </h4>
+
           </div>
 
-          <div className={`mt-2 rounded-full px-3 py-1 text-xs font-medium ${badge}`}>
-            {status}
+          <ArrowRight className="h-5 w-5 text-muted-foreground" />
+
+          <div className="flex-1 text-right">
+
+            <p className="text-xs uppercase tracking-wide text-muted-foreground">
+              Destination
+            </p>
+
+            <h4 className="font-semibold">
+              {destination}
+            </h4>
+
           </div>
+
+        </div>
+
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
+          <Info icon={<Calendar className="h-4 w-4" />} text={date} />
+          <Info icon={<Clock3 className="h-4 w-4" />} text={time} />
+          <Info icon={<Car className="h-4 w-4" />} text={vehicle} />
+          <Info icon={<Users className="h-4 w-4" />} text={`${seatsLeft} Seats`} />
 
         </div>
 
       </div>
 
-      <div className="mt-6 space-y-3">
+      <div className="flex flex-col gap-4 border-t bg-muted/30 p-6 md:flex-row md:items-center md:justify-between">
 
-        <div className="flex items-center gap-2">
-          <Car className="h-4 w-4" />
-          {vehicle}
-        </div>
+        <div>
 
-        <div className="flex items-center gap-2">
-          <MapPin className="h-4 w-4 text-green-600" />
-          {pickup}
-        </div>
-
-        <div className="ml-6">↓</div>
-
-        <div className="flex items-center gap-2">
-          <MapPin className="h-4 w-4 text-red-600" />
-          {destination}
-        </div>
-
-        <div className="grid gap-2 md:grid-cols-3">
-
-          <div className="flex items-center gap-2">
-            <Calendar className="h-4 w-4" />
-            {date}
+          <div className="text-sm text-muted-foreground">
+            Price Per Seat
           </div>
 
-          <div className="flex items-center gap-2">
-            <Clock3 className="h-4 w-4" />
-            {time}
-          </div>
-
-          <div className="flex items-center gap-2">
-            <Users className="h-4 w-4" />
-            {seatsLeft} left
+          <div className="mt-1 text-3xl font-bold">
+            ₹{price}
           </div>
 
         </div>
 
-      </div>
+        <div className={`rounded-full px-4 py-2 text-sm font-semibold ${badge}`}>
+          {status}
+        </div>
 
-      <div className="mt-6 flex flex-wrap gap-3">
-
-        <Button asChild>
-          <Link href={`/ride-sharing/${id}`}>
-            View Details
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
-
-        {status === "UPCOMING" && (
-          <Button variant="outline">
-            Cancel Booking
-          </Button>
-        )}
-
-        {status === "OFFERED" && (
-          <>
-            <Button variant="outline">
-              Edit Ride
-            </Button>
-
-            <Button variant="outline">
-              Passengers
-            </Button>
-          </>
-        )}
-
-        {status === "COMPLETED" && (
-          <Button variant="outline">
-            Rate Ride
-          </Button>
-        )}
+        <Link href={`/ride-sharing/`}><Button className="rounded-xl px-8">
+            View Ride
+          </Button></Link>
 
       </div>
 
     </Card>
+  );
+}
+
+function Info({
+  icon,
+  text,
+}: {
+  icon: React.ReactNode;
+  text: string;
+}) {
+  return (
+    <div className="flex items-center gap-3 rounded-2xl border p-4">
+      <div className="text-primary">
+        {icon}
+      </div>
+
+      <span className="text-sm font-medium">
+        {text}
+      </span>
+    </div>
   );
 }

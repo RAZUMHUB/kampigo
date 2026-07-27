@@ -1,4 +1,5 @@
 import { ClothingCard } from "@/components/clothes/ClothingCard";
+import { AuthGuard } from '@/components/auth/auth-guard';
 
 const activeRentals = [
   {
@@ -34,7 +35,8 @@ const completedRentals = [
 
 export default function MyRentalsPage() {
   return (
-    <main className="mx-auto max-w-7xl space-y-12 p-8">
+    <AuthGuard>
+      <main className="mx-auto max-w-7xl space-y-12 p-8">
       <section>
         <h1 className="text-4xl font-bold">
           My Rentals
@@ -75,5 +77,6 @@ export default function MyRentalsPage() {
         </div>
       </section>
     </main>
+    </AuthGuard>
   );
 }

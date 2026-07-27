@@ -106,7 +106,7 @@ export function ClothingCard({
             </div>
           </div>
 
-          <Button asChild>
+          <Button>
             <Link href={`/clothes-rental/${id}`}>
               View
               <ArrowRight className="ml-2 h-4 w-4" />

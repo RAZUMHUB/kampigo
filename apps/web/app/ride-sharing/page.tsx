@@ -1,8 +1,13 @@
 import Image from "next/image";
-import Link from "next/link";
-import { Car, Search, PlusCircle, MapPin, ArrowRight } from "lucide-react";
+import { AuthGuard } from "@/components/auth/auth-guard";
 
-
+import { RideHero } from "@/components/rides/ui/RideHero";
+import { RideStats } from "@/components/rides/ui/RideStats";
+import { UpcomingTrips } from "@/components/rides/ui/UpcomingTrips";
+import { PickupPoints } from "@/components/rides/ui/PickupPoints";
+import { PopularRoutesGrid } from "@/components/rides/ui/PopularRoutesGrid";
+import { FloatingOfferRide } from "@/components/rides/ui/FloatingOfferRide";
+import { FadeIn } from "@/components/rides/ui/FadeIn";
 
 const rides = [
   {
@@ -21,108 +26,50 @@ const rides = [
 
 export default function RideSharingPage() {
   return (
-    <main className="mx-auto max-w-7xl p-8">
-      <div className="rounded-3xl bg-gradient-to-r from-blue-600 to-indigo-700 p-8 text-white">
-        <div className="flex items-center gap-3">
-          <Car className="h-10 w-10" />
-          <div>
-            <h1 className="text-4xl font-bold">Ride Sharing</h1>
-            <p className="mt-2 text-blue-100">
-              Travel safely with verified students from your campus.
-            </p>
-          </div>
-        </div>
-      </div>
+    <AuthGuard>
+      <main className="mx-auto max-w-7xl space-y-12 p-6 md:p-8">
 
-      <div className="mt-8 grid gap-6 md:grid-cols-3">
-        <Link
-          href="/ride-sharing/search"
-          className="rounded-2xl border p-6 transition hover:shadow-lg"
-        >
-          <Search className="h-10 w-10 text-blue-600" />
-          <h2 className="mt-4 text-xl font-semibold">Find a Ride</h2>
-          <p className="mt-2 text-gray-500">
-            Search available rides posted by students.
-          </p>
-          <ArrowRight className="mt-6 h-5 w-5" />
-        </Link>
+        <FadeIn><RideHero /></FadeIn>
 
-        <Link
-          href="/ride-sharing/offer"
-          className="rounded-2xl border p-6 transition hover:shadow-lg"
-        >
-          <PlusCircle className="h-10 w-10 text-green-600" />
-          <h2 className="mt-4 text-xl font-semibold">Offer a Ride</h2>
-          <p className="mt-2 text-gray-500">
-            Publish your journey and share empty seats.
-          </p>
-          <ArrowRight className="mt-6 h-5 w-5" />
-        </Link>
+        <FadeIn delay={100}><RideStats /></FadeIn>
 
-        <Link
-          href="/ride-sharing/my-rides"
-          className="rounded-2xl border p-6 transition hover:shadow-lg"
-        >
-          <MapPin className="h-10 w-10 text-orange-600" />
-          <h2 className="mt-4 text-xl font-semibold">My Rides</h2>
-          <p className="mt-2 text-gray-500">
-            Manage your booked and offered rides.
-          </p>
-          <ArrowRight className="mt-6 h-5 w-5" />
-        </Link>
-      </div>
+        <FadeIn delay={200}><UpcomingTrips /></FadeIn>
 
-      <section className="mt-10">
-        <h2 className="text-2xl font-bold">Popular Routes</h2>
+        <FadeIn delay={300}><PickupPoints /></FadeIn>
 
-        <div className="mt-5 grid gap-4 md:grid-cols-2">
-          <div className="rounded-xl border p-5">
-            🚗 Parul University → Vadodara Railway Station
-          </div>
+                <FadeIn delay={400}><PopularRoutesGrid /></FadeIn>
 
-          <div className="rounded-xl border p-5">
-            ✈️ Parul University → Vadodara Airport
-          </div>
+<section className="mt-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <h2 className="mb-6 text-2xl font-bold">
+            Featured Vehicles
+          </h2>
 
-          <div className="rounded-xl border p-5">
-            🏙️ Parul University → Ahmedabad
-          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {rides.map((ride) => (
+              <div
+                key={ride.name}
+                className="group overflow-hidden rounded-3xl border bg-card transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-primary/30"
+              >
+                <Image
+                  sizes="(max-width:768px) 100vw, 33vw"
+                  src={ride.image}
+                  alt={ride.name}
+                  width={600}
+                  height={400}
+                  className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
 
-          <div className="rounded-xl border p-5">
-            🚌 Parul University → Anand
-          </div>
-        </div>
-      </section>
-
-      <section className="mt-12">
-        <h2 className="mb-6 text-2xl font-bold">
-          Featured Vehicles
-        </h2>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          {rides.map((ride) => (
-            <div
-              key={ride.name}
-              className="overflow-hidden rounded-2xl border"
-            >
-              <Image
-                src={ride.image}
-                alt={ride.name}
-                width={600}
-                height={400}
-                className="h-56 w-full object-cover"
-              />
-
-              <div className="p-4">
-                <h3 className="text-lg font-semibold">
-                  {ride.name}
-                </h3>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold transition-colors group-hover:text-primary">
+                    {ride.name}
+                  </h3>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-    </main>
+            ))}
+          </div>
+        </section>
+        <FloatingOfferRide />
+      </main>
+    </AuthGuard>
   );
 }

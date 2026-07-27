@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { AuthGuard } from '@/components/auth/auth-guard';
 import {
   ArrowRight,
   PackagePlus,
@@ -7,7 +8,8 @@ import {
 
 export default function Page() {
   return (
-    <div className="px-4 py-8 sm:px-6 md:px-8 md:py-12">
+    <AuthGuard>
+      <div className="px-4 py-8 sm:px-6 md:px-8 md:py-12">
       <div className="mx-auto w-full max-w-5xl">
         <header className="mx-auto mb-10 max-w-2xl text-center">
           <p className="mb-2 text-sm font-medium text-ink-400">
@@ -68,5 +70,6 @@ export default function Page() {
         </div>
       </div>
     </div>
+    </AuthGuard>
   );
 }

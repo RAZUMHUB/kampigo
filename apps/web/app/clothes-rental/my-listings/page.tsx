@@ -3,6 +3,7 @@ import { PlusCircle } from "lucide-react";
 
 import { ClothingCard } from "@/components/clothes/ClothingCard";
 import { Button } from "@/components/ui/button";
+import { AuthGuard } from '@/components/auth/auth-guard';
 
 const listings = [
   {
@@ -35,7 +36,8 @@ const listings = [
 
 export default function MyListingsPage() {
   return (
-    <main className="mx-auto max-w-7xl space-y-8 p-8">
+    <AuthGuard>
+      <main className="mx-auto max-w-7xl space-y-8 p-8">
       <section className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
           <h1 className="text-4xl font-bold">
@@ -43,11 +45,11 @@ export default function MyListingsPage() {
           </h1>
 
           <p className="mt-2 text-muted-foreground">
-            Manage all the clothes you've listed for rent.
+            Manage all the clothes you&apos;ve listed for rent.
           </p>
         </div>
 
-        <Button asChild size="lg">
+        <Button size="lg">
           <Link href="/clothes-rental/list-item">
             <PlusCircle className="mr-2 h-4 w-4" />
             Add Listing
@@ -64,5 +66,6 @@ export default function MyListingsPage() {
         ))}
       </section>
     </main>
+    </AuthGuard>
   );
 }

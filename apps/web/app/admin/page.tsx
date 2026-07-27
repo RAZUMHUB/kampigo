@@ -11,6 +11,7 @@ import {
 import { api } from '@/lib/api-client';
 import { Card } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
+import { AuthGuard } from '@/components/auth/auth-guard';
 
 const METRIC_ICONS = [
   PackageSearch,
@@ -38,7 +39,8 @@ export default function AdminPage() {
   ];
 
   return (
-    <main className="px-4 py-6 sm:px-6 md:px-8 md:py-10">
+    <AuthGuard>
+      <main className="px-4 py-6 sm:px-6 md:px-8 md:py-10">
       <div className="mx-auto w-full max-w-6xl">
         <header className="mb-7 max-w-2xl md:mb-9">
           <p className="mb-2 text-sm font-medium text-ink-400">
@@ -99,5 +101,6 @@ export default function AdminPage() {
         </section>
       </div>
     </main>
+    </AuthGuard>
   );
 }

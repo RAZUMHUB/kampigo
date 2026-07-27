@@ -2,10 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { AuthGuard } from '@/components/auth/auth-guard';
 
 export default function ListClothingPage() {
   return (
-    <main className="mx-auto max-w-4xl space-y-8 p-8">
+    <AuthGuard>
+      <main className="mx-auto max-w-4xl space-y-8 p-8">
       <section>
         <h1 className="text-4xl font-bold">
           List Your Clothing
@@ -115,5 +117,6 @@ export default function ListClothingPage() {
 
       </Card>
     </main>
+    </AuthGuard>
   );
 }

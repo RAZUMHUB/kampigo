@@ -9,10 +9,12 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { AuthGuard } from '@/components/auth/auth-guard';
 
 export default function ClothingDetailsPage() {
   return (
-    <main className="mx-auto max-w-7xl space-y-10 p-8">
+    <AuthGuard>
+      <main className="mx-auto max-w-7xl space-y-10 p-8">
       <div className="grid gap-10 lg:grid-cols-2">
 
         <Card className="flex h-[520px] items-center justify-center rounded-2xl">
@@ -97,5 +99,6 @@ export default function ClothingDetailsPage() {
 
       </div>
     </main>
+    </AuthGuard>
   );
 }

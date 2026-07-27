@@ -276,7 +276,7 @@ export function AuthFlow() {
                   <Skeleton className="h-40 w-full" />
                 ) : (
                   <Popover open={universityOpen} onOpenChange={setUniversityOpen}>
-                    <PopoverTrigger asChild>
+                    <PopoverTrigger>
                       <Button
                         type="button"
                         variant="outline"

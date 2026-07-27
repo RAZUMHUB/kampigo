@@ -1,5 +1,6 @@
 import { ClothingCard } from "@/components/clothes/ClothingCard";
 import { ClothingFilter } from "@/components/clothes/ClothingFilter";
+import { AuthGuard } from '@/components/auth/auth-guard';
 
 const clothes = [
   {
@@ -45,7 +46,8 @@ const clothes = [
 
 export default function BrowseClothesPage() {
   return (
-    <main className="mx-auto max-w-7xl space-y-8 p-8">
+    <AuthGuard>
+      <main className="mx-auto max-w-7xl space-y-8 p-8">
       <section>
         <h1 className="text-4xl font-bold">
           Browse Clothes
@@ -67,5 +69,6 @@ export default function BrowseClothesPage() {
         ))}
       </section>
     </main>
+    </AuthGuard>
   );
 }

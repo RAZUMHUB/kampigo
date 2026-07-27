@@ -1,56 +1,69 @@
-import { PopularRoutes } from "@/components/rides/PopularRoutes";
-import { RideCard } from "@/components/rides/RideCard";
+"use client";
+
+import { useState } from "react";
+
 import { RideSearchForm } from "@/components/rides/RideSearchForm";
+import { RideCard } from "@/components/rides/RideCard";
+import { RideFilters } from "@/components/rides/ui/RideFilters";
+import { RideCardSkeleton } from "@/components/rides/ui/RideCardSkeleton";
+import { EmptyRides } from "@/components/rides/ui/EmptyRides";
+import { useRides } from "@/hooks/use-rides";
 
-export default function SearchRidePage() {
+export default function RideSearchPage() {
+  const [query, setQuery] = useState("");
+  const { data, isLoading, error } = useRides(query);
+
   return (
-    <main className="mx-auto max-w-6xl space-y-10 p-8">
-      <RideSearchForm />
+    <main className="mx-auto max-w-7xl p-8 space-y-8">
+      <RideSearchForm onSearch={setQuery} />
 
-      <PopularRoutes />
+      <RideFilters />
 
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold">Available Rides</h2>
+      {isLoading && (
+        <div className="space-y-6">
+          <RideCardSkeleton />
+          <RideCardSkeleton />
+          <RideCardSkeleton />
+        </div>
+      )}
 
-        <RideCard
-          id="ride-1"
-          driverName="Rahul Patel"
-          rating={4.8}
-          pickup="Parul University"
-          destination="Vadodara Railway Station"
-          date="Today"
-          time="5:30 PM"
-          seatsLeft={2}
-          price={120}
-          vehicle="Swift Dzire"
+      {!isLoading && error && (
+        <EmptyRides
+          title="Unable to load rides"
+          description="Please try again in a few moments."
         />
+      )}
 
-        <RideCard
-          id="ride-2"
-          driverName="Priya Shah"
-          rating={4.9}
-          pickup="Parul University"
-          destination="Vadodara Airport"
-          date="Tomorrow"
-          time="8:00 AM"
-          seatsLeft={3}
-          price={180}
-          vehicle="Hyundai i20"
-        />
+      {!isLoading &&
+        !error &&
+        data?.rides?.length === 0 && (
+          <EmptyRides />
+        )}
 
-        <RideCard
-          id="ride-3"
-          driverName="Aman Verma"
-          rating={4.7}
-          pickup="Parul University"
-          destination="Ahmedabad"
-          date="Sunday"
-          time="6:30 AM"
-          seatsLeft={1}
-          price={350}
-          vehicle="Honda City"
-        />
-      </section>
+      {!isLoading &&
+        !error &&
+        data?.rides?.map((ride) => (
+          <RideCard
+            key={ride.id}
+            id={ride.id}
+            driverName={ride.driver.displayName}
+            rating={5}
+            pickup={ride.pickup}
+            destination={ride.destination}
+            date={new Date(
+              ride.departureDateTime
+            ).toLocaleDateString()}
+            time={new Date(
+              ride.departureDateTime
+            ).toLocaleTimeString([], {
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
+            seatsLeft={ride.availableSeats}
+            price={ride.pricePerSeat}
+            vehicle={ride.vehicle}
+          />
+        ))}
     </main>
   );
 }

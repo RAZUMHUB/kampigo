@@ -366,21 +366,18 @@ function ActionCard({
 function MatchesPreview() {
   const hasAccessToken = api.hasAccessToken();
 
+
   const { data, isLoading } = useQuery<any[]>({
     queryKey: ['matches', 'preview'],
     queryFn: async () => {
-      const lostItems = await api.get<Array<{ id: string }>>(
-        '/users/me/lost-items'
-      );
+      const lostItems = await api.get<Array<{ id: string }>>('/users/me/lost-items');
 
       if (lostItems.length === 0) {
         return [];
       }
 
       const matchGroups = await Promise.all(
-        lostItems.map((item) =>
-          api.get<any[]>(`/matches/for-lost-item/${item.id}`)
-        )
+        lostItems.map((item) => api.get<any[]>(`/matches/for-lost-item/${item.id}`))
       );
 
       return matchGroups.flat().slice(0, 3);

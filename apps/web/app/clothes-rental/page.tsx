@@ -4,6 +4,7 @@ import { ArrowRight, PlusCircle } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { AuthGuard } from '@/components/auth/auth-guard';
 
 const rentals = [
   {
@@ -30,7 +31,8 @@ const rentals = [
 
 export default function ClothesRentalPage() {
   return (
-    <main className="mx-auto max-w-7xl p-8">
+    <AuthGuard>
+      <main className="mx-auto max-w-7xl p-8">
       <div className="mb-10 rounded-3xl border p-8">
         <h1 className="text-4xl font-bold">Campus Clothes Rental</h1>
 
@@ -39,15 +41,15 @@ export default function ClothesRentalPage() {
         </p>
 
         <div className="mt-6 flex gap-4">
-          <Button asChild>
-            <Link href="#">
+          <Button>
+            <Link href="/clothes-rental/browse">
               Browse
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
 
-          <Button variant="outline" asChild>
-            <Link href="#">
+          <Button variant="outline">
+            <Link href="/clothes-rental/list-item">
               <PlusCircle className="mr-2 h-4 w-4" />
               List Item
             </Link>
@@ -81,5 +83,6 @@ export default function ClothesRentalPage() {
         ))}
       </div>
     </main>
+    </AuthGuard>
   );
 }
