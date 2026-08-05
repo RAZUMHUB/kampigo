@@ -1,8 +1,8 @@
-import { IsDateString, IsEnum, IsOptional, IsString, IsUUID, MaxLength } from 'class-validator';
+import { IsDateString, IsEnum, IsOptional, IsString, MaxLength } from 'class-validator';
 import { CustodyStatus } from '@prisma/client';
 
 export class CreateFoundItemDto {
-  @IsOptional() @IsUUID() categoryId?: string;
+  @IsOptional() @IsString() categoryId?: string;
   @IsString() @MaxLength(120) title: string;
   @IsString() @MaxLength(2000) description: string;
   @IsOptional() @IsString() @MaxLength(80) brand?: string;
@@ -11,8 +11,8 @@ export class CreateFoundItemDto {
   @IsOptional() @IsString() @MaxLength(40) secondaryColor?: string;
   @IsOptional() @IsString() @MaxLength(500) distinctiveMarks?: string;
 
-  @IsOptional() @IsUUID() campusId?: string;
-  @IsOptional() @IsUUID() buildingId?: string;
+  @IsOptional() @IsString() campusId?: string;
+  @IsOptional() @IsString() buildingId?: string;
   @IsOptional() @IsString() @MaxLength(80) floorOrZone?: string;
   @IsOptional() @IsString() @MaxLength(150) nearbyLandmark?: string;
 

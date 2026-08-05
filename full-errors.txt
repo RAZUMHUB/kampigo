@@ -1,0 +1,457 @@
+================ API BUILD ================
+
+> @campigo/api@0.1.0 build
+> nest build
+
+
+================ WEB BUILD ================
+
+> @campigo/web@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.13
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/23) ...
+   Generating static pages (5/23) 
+   Generating static pages (11/23) 
+   Generating static pages (17/23) 
+ ✓ Generating static pages (23/23)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    5.59 kB         109 kB
+├ ○ /_not-found                          137 B          87.3 kB
+├ ○ /admin                               3.65 kB         100 kB
+├ ○ /auth                                57.2 kB         168 kB
+├ ○ /clothes-rental                      1.22 kB         105 kB
+├ ƒ /clothes-rental/[id]                 1.26 kB        93.5 kB
+├ ○ /clothes-rental/browse               3.41 kB         112 kB
+├ ○ /clothes-rental/list-item            1.27 kB        96.1 kB
+├ ○ /clothes-rental/my-listings          1.28 kB         100 kB
+├ ○ /clothes-rental/my-rentals           1.28 kB         100 kB
+├ ○ /matches                             4.94 kB         114 kB
+├ ○ /profile                             6.88 kB         116 kB
+├ ○ /report                              2.01 kB          96 kB
+├ ○ /report/found                        3.57 kB         110 kB
+├ ○ /report/found/success                1.28 kB         100 kB
+├ ○ /report/lost                         3.5 kB          110 kB
+├ ○ /report/lost/success                 1.28 kB         100 kB
+├ ○ /ride-sharing                        3.9 kB          124 kB
+├ ƒ /ride-sharing/[id]                   1.26 kB        93.5 kB
+├ ○ /ride-sharing/my-rides               1.26 kB        93.5 kB
+├ ○ /ride-sharing/offer                  1.27 kB        96.1 kB
+├ ○ /ride-sharing/search                 5.12 kB         123 kB
+└ ○ /search                              3.76 kB         112 kB
++ First Load JS shared by all            87.2 kB
+  ├ chunks/1dd3208c-d13b3a2afe1a80da.js  53.7 kB
+  ├ chunks/286-c4ada7d888ccc787.js       31.6 kB
+  └ other shared chunks (total)          1.96 kB
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+================ ROOT TYPESCRIPT ================
+../../Documents/Codex/2026-07-15/princekumarmandal-princes-macbook-air-kaamsetu-7/work/kaamsetu-review/kaamsetu/frontend/src/app/dashboard/labour/page.tsx(166,69): error TS1005: '}' expected.
+../../Documents/Codex/2026-07-15/princekumarmandal-princes-macbook-air-kaamsetu-7/work/kaamsetu-review/kaamsetu/frontend/src/app/dashboard/labour/page.tsx(166,82): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+../kaamsetu 2/frontend/tailwind.config.ts(74,20): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(75,13): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(76,10): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(77,14): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(78,19): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(79,13): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(80,13): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(81,22): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(82,13): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(83,23): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(84,24): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(85,22): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(86,10): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(87,18): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(88,14): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(89,12): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(89,21): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(90,4): error TS1128: Declaration or statement expected.
+../kaamsetu 2/frontend/tailwind.config.ts(91,12): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(92,12): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(97,25): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(98,24): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(101,25): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(105,10): error TS1146: Declaration expected.
+../kaamsetu 2/frontend/tailwind.config.ts(106,10): error TS1146: Declaration expected.
+../kaamsetu 2/frontend/tailwind.config.ts(107,10): error TS1146: Declaration expected.
+../kaamsetu 2/frontend/tailwind.config.ts(109,7): error TS1146: Declaration expected.
+../kaamsetu 2/frontend/tailwind.config.ts(109,8): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 2/frontend/tailwind.config.ts(110,3): error TS1128: Declaration or statement expected.
+../kaamsetu 2/frontend/tailwind.config.ts(110,4): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 2/frontend/tailwind.config.ts(111,17): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(112,16): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(114,3): error TS1109: Expression expected.
+../kaamsetu 2/frontend/tailwind.config.ts(114,10): error TS1005: ',' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(114,17): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(115,3): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 2/frontend/tailwind.config.ts(115,25): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(115,62): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(116,3): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 2/frontend/tailwind.config.ts(116,21): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(116,26): error TS1134: Variable declaration expected.
+../kaamsetu 2/frontend/tailwind.config.ts(117,1): error TS1128: Declaration or statement expected.
+../kaamsetu 2/frontend/tailwind.config.ts(119,7): error TS1146: Declaration expected.
+../kaamsetu 2/frontend/tailwind.config.ts(119,8): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 2/frontend/tailwind.config.ts(120,3): error TS1128: Declaration or statement expected.
+../kaamsetu 2/frontend/tailwind.config.ts(120,19): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(120,36): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(121,3): error TS1128: Declaration or statement expected.
+../kaamsetu 2/frontend/tailwind.config.ts(121,18): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(121,19): error TS1128: Declaration or statement expected.
+../kaamsetu 2/frontend/tailwind.config.ts(121,38): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(122,3): error TS1128: Declaration or statement expected.
+../kaamsetu 2/frontend/tailwind.config.ts(122,16): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(122,32): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(123,3): error TS1128: Declaration or statement expected.
+../kaamsetu 2/frontend/tailwind.config.ts(123,15): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(123,28): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(123,33): error TS1134: Variable declaration expected.
+../kaamsetu 2/frontend/tailwind.config.ts(127,11): error TS1146: Declaration expected.
+../kaamsetu 2/frontend/tailwind.config.ts(127,12): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 2/frontend/tailwind.config.ts(128,18): error TS1005: ',' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(128,27): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(128,34): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+../kaamsetu 2/frontend/tailwind.config.ts(129,20): error TS1005: ',' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(129,29): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(129,35): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+../kaamsetu 2/frontend/tailwind.config.ts(129,41): error TS1128: Declaration or statement expected.
+../kaamsetu 2/frontend/tailwind.config.ts(130,1): error TS1128: Declaration or statement expected.
+../kaamsetu 2/frontend/tailwind.config.ts(131,1): error TS1128: Declaration or statement expected.
+../kaamsetu 2/frontend/tailwind.config.ts(131,2): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 2/frontend/tailwind.config.ts(132,33): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+../kaamsetu 2/frontend/tailwind.config.ts(132,46): error TS1005: ',' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(132,49): error TS1109: Expression expected.
+../kaamsetu 2/frontend/tailwind.config.ts(132,59): error TS1005: ',' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(132,62): error TS1109: Expression expected.
+../kaamsetu 2/frontend/tailwind.config.ts(132,72): error TS1005: ',' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(132,75): error TS1109: Expression expected.
+../kaamsetu 2/frontend/tailwind.config.ts(133,18): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(133,24): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+../kaamsetu 2/frontend/tailwind.config.ts(133,31): error TS1109: Expression expected.
+../kaamsetu 2/frontend/tailwind.config.ts(134,14): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 2/frontend/tailwind.config.ts(134,25): error TS1005: ';' expected.
+../kaamsetu 2/frontend/tailwind.config.ts(134,25): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+../kaamsetu 3/frontend/tailwind.config.ts(74,20): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(75,13): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(76,10): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(77,14): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(78,19): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(79,13): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(80,13): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(81,22): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(82,13): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(83,23): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(84,24): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(85,22): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(86,10): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(87,18): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(88,14): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(89,12): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(89,21): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(90,4): error TS1128: Declaration or statement expected.
+../kaamsetu 3/frontend/tailwind.config.ts(91,12): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(92,12): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(97,25): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(98,24): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(101,25): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(105,10): error TS1146: Declaration expected.
+../kaamsetu 3/frontend/tailwind.config.ts(106,10): error TS1146: Declaration expected.
+../kaamsetu 3/frontend/tailwind.config.ts(107,10): error TS1146: Declaration expected.
+../kaamsetu 3/frontend/tailwind.config.ts(109,7): error TS1146: Declaration expected.
+../kaamsetu 3/frontend/tailwind.config.ts(109,8): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 3/frontend/tailwind.config.ts(110,3): error TS1128: Declaration or statement expected.
+../kaamsetu 3/frontend/tailwind.config.ts(110,4): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 3/frontend/tailwind.config.ts(111,17): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(112,16): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(114,3): error TS1109: Expression expected.
+../kaamsetu 3/frontend/tailwind.config.ts(114,10): error TS1005: ',' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(114,17): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(115,3): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 3/frontend/tailwind.config.ts(115,25): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(115,62): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(116,3): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 3/frontend/tailwind.config.ts(116,21): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(116,26): error TS1134: Variable declaration expected.
+../kaamsetu 3/frontend/tailwind.config.ts(117,1): error TS1128: Declaration or statement expected.
+../kaamsetu 3/frontend/tailwind.config.ts(119,7): error TS1146: Declaration expected.
+../kaamsetu 3/frontend/tailwind.config.ts(119,8): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 3/frontend/tailwind.config.ts(120,3): error TS1128: Declaration or statement expected.
+../kaamsetu 3/frontend/tailwind.config.ts(120,19): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(120,36): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(121,3): error TS1128: Declaration or statement expected.
+../kaamsetu 3/frontend/tailwind.config.ts(121,18): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(121,19): error TS1128: Declaration or statement expected.
+../kaamsetu 3/frontend/tailwind.config.ts(121,38): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(122,3): error TS1128: Declaration or statement expected.
+../kaamsetu 3/frontend/tailwind.config.ts(122,16): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(122,32): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(123,3): error TS1128: Declaration or statement expected.
+../kaamsetu 3/frontend/tailwind.config.ts(123,15): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(123,28): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(123,33): error TS1134: Variable declaration expected.
+../kaamsetu 3/frontend/tailwind.config.ts(127,11): error TS1146: Declaration expected.
+../kaamsetu 3/frontend/tailwind.config.ts(127,12): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 3/frontend/tailwind.config.ts(128,18): error TS1005: ',' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(128,27): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(128,34): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+../kaamsetu 3/frontend/tailwind.config.ts(129,20): error TS1005: ',' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(129,29): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(129,35): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+../kaamsetu 3/frontend/tailwind.config.ts(129,41): error TS1128: Declaration or statement expected.
+../kaamsetu 3/frontend/tailwind.config.ts(130,1): error TS1128: Declaration or statement expected.
+../kaamsetu 3/frontend/tailwind.config.ts(131,1): error TS1128: Declaration or statement expected.
+../kaamsetu 3/frontend/tailwind.config.ts(131,2): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 3/frontend/tailwind.config.ts(132,33): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+../kaamsetu 3/frontend/tailwind.config.ts(132,46): error TS1005: ',' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(132,49): error TS1109: Expression expected.
+../kaamsetu 3/frontend/tailwind.config.ts(132,59): error TS1005: ',' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(132,62): error TS1109: Expression expected.
+../kaamsetu 3/frontend/tailwind.config.ts(132,72): error TS1005: ',' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(132,75): error TS1109: Expression expected.
+../kaamsetu 3/frontend/tailwind.config.ts(133,18): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(133,24): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+../kaamsetu 3/frontend/tailwind.config.ts(133,31): error TS1109: Expression expected.
+../kaamsetu 3/frontend/tailwind.config.ts(134,14): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 3/frontend/tailwind.config.ts(134,25): error TS1005: ';' expected.
+../kaamsetu 3/frontend/tailwind.config.ts(134,25): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+../kaamsetu 4/frontend/tailwind.config.ts(74,20): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(75,13): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(76,10): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(77,14): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(78,19): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(79,13): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(80,13): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(81,22): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(82,13): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(83,23): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(84,24): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(85,22): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(86,10): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(87,18): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(88,14): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(89,12): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(89,21): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(90,4): error TS1128: Declaration or statement expected.
+../kaamsetu 4/frontend/tailwind.config.ts(91,12): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(92,12): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(97,25): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(98,24): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(101,25): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(105,10): error TS1146: Declaration expected.
+../kaamsetu 4/frontend/tailwind.config.ts(106,10): error TS1146: Declaration expected.
+../kaamsetu 4/frontend/tailwind.config.ts(107,10): error TS1146: Declaration expected.
+../kaamsetu 4/frontend/tailwind.config.ts(109,7): error TS1146: Declaration expected.
+../kaamsetu 4/frontend/tailwind.config.ts(109,8): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 4/frontend/tailwind.config.ts(110,3): error TS1128: Declaration or statement expected.
+../kaamsetu 4/frontend/tailwind.config.ts(110,4): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 4/frontend/tailwind.config.ts(111,17): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(112,16): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(114,3): error TS1109: Expression expected.
+../kaamsetu 4/frontend/tailwind.config.ts(114,10): error TS1005: ',' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(114,17): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(115,3): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 4/frontend/tailwind.config.ts(115,25): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(115,62): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(116,3): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 4/frontend/tailwind.config.ts(116,21): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(116,26): error TS1134: Variable declaration expected.
+../kaamsetu 4/frontend/tailwind.config.ts(117,1): error TS1128: Declaration or statement expected.
+../kaamsetu 4/frontend/tailwind.config.ts(119,7): error TS1146: Declaration expected.
+../kaamsetu 4/frontend/tailwind.config.ts(119,8): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 4/frontend/tailwind.config.ts(120,3): error TS1128: Declaration or statement expected.
+../kaamsetu 4/frontend/tailwind.config.ts(120,19): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(120,36): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(121,3): error TS1128: Declaration or statement expected.
+../kaamsetu 4/frontend/tailwind.config.ts(121,18): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(121,19): error TS1128: Declaration or statement expected.
+../kaamsetu 4/frontend/tailwind.config.ts(121,38): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(122,3): error TS1128: Declaration or statement expected.
+../kaamsetu 4/frontend/tailwind.config.ts(122,16): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(122,32): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(123,3): error TS1128: Declaration or statement expected.
+../kaamsetu 4/frontend/tailwind.config.ts(123,15): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(123,28): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(123,33): error TS1134: Variable declaration expected.
+../kaamsetu 4/frontend/tailwind.config.ts(127,11): error TS1146: Declaration expected.
+../kaamsetu 4/frontend/tailwind.config.ts(127,12): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 4/frontend/tailwind.config.ts(128,18): error TS1005: ',' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(128,27): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(128,34): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+../kaamsetu 4/frontend/tailwind.config.ts(129,20): error TS1005: ',' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(129,29): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(129,35): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+../kaamsetu 4/frontend/tailwind.config.ts(129,41): error TS1128: Declaration or statement expected.
+../kaamsetu 4/frontend/tailwind.config.ts(130,1): error TS1128: Declaration or statement expected.
+../kaamsetu 4/frontend/tailwind.config.ts(131,1): error TS1128: Declaration or statement expected.
+../kaamsetu 4/frontend/tailwind.config.ts(131,2): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 4/frontend/tailwind.config.ts(132,33): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+../kaamsetu 4/frontend/tailwind.config.ts(132,46): error TS1005: ',' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(132,49): error TS1109: Expression expected.
+../kaamsetu 4/frontend/tailwind.config.ts(132,59): error TS1005: ',' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(132,62): error TS1109: Expression expected.
+../kaamsetu 4/frontend/tailwind.config.ts(132,72): error TS1005: ',' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(132,75): error TS1109: Expression expected.
+../kaamsetu 4/frontend/tailwind.config.ts(133,18): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(133,24): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+../kaamsetu 4/frontend/tailwind.config.ts(133,31): error TS1109: Expression expected.
+../kaamsetu 4/frontend/tailwind.config.ts(134,14): error TS1434: Unexpected keyword or identifier.
+../kaamsetu 4/frontend/tailwind.config.ts(134,25): error TS1005: ';' expected.
+../kaamsetu 4/frontend/tailwind.config.ts(134,25): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+../kaamsetu 5/backend/src/users/users.service.ts(42,115): error TS1127: Invalid character.
+../kaamsetu 5/backend/src/users/users.service.ts(42,116): error TS1136: Property assignment expected.
+../kaamsetu 5/backend/src/users/users.service.ts(46,1): error TS1160: Unterminated template literal.
+../kaamsetu 5/frontend/src/app/dashboard/labour/page.tsx(166,69): error TS1005: '}' expected.
+../kaamsetu 5/frontend/src/app/dashboard/labour/page.tsx(166,82): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+../kaamsetu 6/backend/src/users/users.service.ts(42,115): error TS1127: Invalid character.
+../kaamsetu 6/backend/src/users/users.service.ts(42,116): error TS1136: Property assignment expected.
+../kaamsetu 6/backend/src/users/users.service.ts(46,1): error TS1160: Unterminated template literal.
+../kaamsetu 6/frontend/src/app/dashboard/labour/page.tsx(166,69): error TS1005: '}' expected.
+../kaamsetu 6/frontend/src/app/dashboard/labour/page.tsx(166,82): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+../kaamsetu 7/backend/src/users/users.service.ts(42,115): error TS1127: Invalid character.
+../kaamsetu 7/backend/src/users/users.service.ts(42,116): error TS1136: Property assignment expected.
+../kaamsetu 7/backend/src/users/users.service.ts(46,1): error TS1160: Unterminated template literal.
+../kaamsetu 7/frontend/src/app/dashboard/labour/page.tsx(166,69): error TS1005: '}' expected.
+../kaamsetu 7/frontend/src/app/dashboard/labour/page.tsx(166,82): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+../kaamsetu 8/backend/src/users/users.service.ts(42,115): error TS1127: Invalid character.
+../kaamsetu 8/backend/src/users/users.service.ts(42,116): error TS1136: Property assignment expected.
+../kaamsetu 8/backend/src/users/users.service.ts(46,1): error TS1160: Unterminated template literal.
+../kaamsetu 8/frontend/src/app/dashboard/labour/page.tsx(166,69): error TS1005: '}' expected.
+../kaamsetu 8/frontend/src/app/dashboard/labour/page.tsx(166,82): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+../kaamsetu 9/backend/src/users/users.service.ts(42,115): error TS1127: Invalid character.
+../kaamsetu 9/backend/src/users/users.service.ts(42,116): error TS1136: Property assignment expected.
+../kaamsetu 9/backend/src/users/users.service.ts(46,1): error TS1160: Unterminated template literal.
+../kaamsetu 9/frontend/src/app/dashboard/labour/page.tsx(166,69): error TS1005: '}' expected.
+../kaamsetu 9/frontend/src/app/dashboard/labour/page.tsx(166,82): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+../kaamsetu/frontend/tailwind.config.ts(74,20): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(75,13): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(76,10): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(77,14): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(78,19): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(79,13): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(80,13): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(81,22): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(82,13): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(83,23): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(84,24): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(85,22): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(86,10): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(87,18): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(88,14): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(89,12): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(89,21): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(90,4): error TS1128: Declaration or statement expected.
+../kaamsetu/frontend/tailwind.config.ts(91,12): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(92,12): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(97,25): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(98,24): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(101,25): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(105,10): error TS1146: Declaration expected.
+../kaamsetu/frontend/tailwind.config.ts(106,10): error TS1146: Declaration expected.
+../kaamsetu/frontend/tailwind.config.ts(107,10): error TS1146: Declaration expected.
+../kaamsetu/frontend/tailwind.config.ts(109,7): error TS1146: Declaration expected.
+../kaamsetu/frontend/tailwind.config.ts(109,8): error TS1434: Unexpected keyword or identifier.
+../kaamsetu/frontend/tailwind.config.ts(110,3): error TS1128: Declaration or statement expected.
+../kaamsetu/frontend/tailwind.config.ts(110,4): error TS1434: Unexpected keyword or identifier.
+../kaamsetu/frontend/tailwind.config.ts(111,17): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(112,16): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(114,3): error TS1109: Expression expected.
+../kaamsetu/frontend/tailwind.config.ts(114,10): error TS1005: ',' expected.
+../kaamsetu/frontend/tailwind.config.ts(114,17): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(115,3): error TS1434: Unexpected keyword or identifier.
+../kaamsetu/frontend/tailwind.config.ts(115,25): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(115,62): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(116,3): error TS1434: Unexpected keyword or identifier.
+../kaamsetu/frontend/tailwind.config.ts(116,21): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(116,26): error TS1134: Variable declaration expected.
+../kaamsetu/frontend/tailwind.config.ts(117,1): error TS1128: Declaration or statement expected.
+../kaamsetu/frontend/tailwind.config.ts(119,7): error TS1146: Declaration expected.
+../kaamsetu/frontend/tailwind.config.ts(119,8): error TS1434: Unexpected keyword or identifier.
+../kaamsetu/frontend/tailwind.config.ts(120,3): error TS1128: Declaration or statement expected.
+../kaamsetu/frontend/tailwind.config.ts(120,19): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(120,36): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(121,3): error TS1128: Declaration or statement expected.
+../kaamsetu/frontend/tailwind.config.ts(121,18): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(121,19): error TS1128: Declaration or statement expected.
+../kaamsetu/frontend/tailwind.config.ts(121,38): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(122,3): error TS1128: Declaration or statement expected.
+../kaamsetu/frontend/tailwind.config.ts(122,16): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(122,32): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(123,3): error TS1128: Declaration or statement expected.
+../kaamsetu/frontend/tailwind.config.ts(123,15): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(123,28): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(123,33): error TS1134: Variable declaration expected.
+../kaamsetu/frontend/tailwind.config.ts(127,11): error TS1146: Declaration expected.
+../kaamsetu/frontend/tailwind.config.ts(127,12): error TS1434: Unexpected keyword or identifier.
+../kaamsetu/frontend/tailwind.config.ts(128,18): error TS1005: ',' expected.
+../kaamsetu/frontend/tailwind.config.ts(128,27): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(128,34): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+../kaamsetu/frontend/tailwind.config.ts(129,20): error TS1005: ',' expected.
+../kaamsetu/frontend/tailwind.config.ts(129,29): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(129,35): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+../kaamsetu/frontend/tailwind.config.ts(129,41): error TS1128: Declaration or statement expected.
+../kaamsetu/frontend/tailwind.config.ts(130,1): error TS1128: Declaration or statement expected.
+../kaamsetu/frontend/tailwind.config.ts(131,1): error TS1128: Declaration or statement expected.
+../kaamsetu/frontend/tailwind.config.ts(131,2): error TS1434: Unexpected keyword or identifier.
+../kaamsetu/frontend/tailwind.config.ts(132,33): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+../kaamsetu/frontend/tailwind.config.ts(132,46): error TS1005: ',' expected.
+../kaamsetu/frontend/tailwind.config.ts(132,49): error TS1109: Expression expected.
+../kaamsetu/frontend/tailwind.config.ts(132,59): error TS1005: ',' expected.
+../kaamsetu/frontend/tailwind.config.ts(132,62): error TS1109: Expression expected.
+../kaamsetu/frontend/tailwind.config.ts(132,72): error TS1005: ',' expected.
+../kaamsetu/frontend/tailwind.config.ts(132,75): error TS1109: Expression expected.
+../kaamsetu/frontend/tailwind.config.ts(133,18): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(133,24): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+../kaamsetu/frontend/tailwind.config.ts(133,31): error TS1109: Expression expected.
+../kaamsetu/frontend/tailwind.config.ts(134,14): error TS1434: Unexpected keyword or identifier.
+../kaamsetu/frontend/tailwind.config.ts(134,25): error TS1005: ';' expected.
+../kaamsetu/frontend/tailwind.config.ts(134,25): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+../../Library/Application Support/Code/User/History/-1f94fc84/a720.ts(219,7): error TS1005: ',' expected.
+../../Library/Application Support/Code/User/History/-1f94fc84/a720.ts(354,3): error TS1128: Declaration or statement expected.
+../../Library/Application Support/Code/User/History/49822e53/3x6x.tsx(274,5): error TS2657: JSX expressions must have one parent element.
+../../Library/Application Support/Code/User/History/49822e53/3x6x.tsx(776,27): error TS1005: ')' expected.
+../../Library/Application Support/Code/User/History/49822e53/3x6x.tsx(895,7): error TS1128: Declaration or statement expected.
+../../Library/Application Support/Code/User/History/49822e53/4jUh.tsx(274,5): error TS2657: JSX expressions must have one parent element.
+../../Library/Application Support/Code/User/History/49822e53/4jUh.tsx(776,27): error TS1005: ')' expected.
+../../Library/Application Support/Code/User/History/49822e53/4jUh.tsx(893,9): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+../../Library/Application Support/Code/User/History/49822e53/4jUh.tsx(973,13): error TS1005: ')' expected.
+../../Library/Application Support/Code/User/History/49822e53/6xtJ.tsx(972,19): error TS1005: ')' expected.
+../../Library/Application Support/Code/User/History/49822e53/8PVk.tsx(274,6): error TS17008: JSX element 'div' has no corresponding closing tag.
+../../Library/Application Support/Code/User/History/49822e53/8PVk.tsx(974,7): error TS1005: '</' expected.
+../../Library/Application Support/Code/User/History/49822e53/9ej5.tsx(274,6): error TS17008: JSX element 'div' has no corresponding closing tag.
+../../Library/Application Support/Code/User/History/49822e53/9ej5.tsx(532,15): error TS1005: '</' expected.
+../../Library/Application Support/Code/User/History/49822e53/AwXm.tsx(274,6): error TS17008: JSX element 'div' has no corresponding closing tag.
+../../Library/Application Support/Code/User/History/49822e53/AwXm.tsx(975,1): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+../../Library/Application Support/Code/User/History/49822e53/AwXm.tsx(975,2): error TS1005: '</' expected.
+../../Library/Application Support/Code/User/History/49822e53/gcr0.tsx(274,5): error TS2657: JSX expressions must have one parent element.
+../../Library/Application Support/Code/User/History/49822e53/gcr0.tsx(720,8): error TS17008: JSX element 'div' has no corresponding closing tag.
+../../Library/Application Support/Code/User/History/49822e53/gcr0.tsx(775,77): error TS1005: ')' expected.
+../../Library/Application Support/Code/User/History/49822e53/gcr0.tsx(775,77): error TS1005: '</' expected.
+../../Library/Application Support/Code/User/History/49822e53/p820.tsx(274,5): error TS2657: JSX expressions must have one parent element.
+../../Library/Application Support/Code/User/History/49822e53/p820.tsx(776,27): error TS1005: ')' expected.
+../../Library/Application Support/Code/User/History/49822e53/p820.tsx(895,7): error TS1128: Declaration or statement expected.
+../../Library/Application Support/Code/User/History/49822e53/q6IP.tsx(274,6): error TS17008: JSX element 'div' has no corresponding closing tag.
+../../Library/Application Support/Code/User/History/49822e53/q6IP.tsx(720,8): error TS17008: JSX element 'div' has no corresponding closing tag.
+../../Library/Application Support/Code/User/History/49822e53/q6IP.tsx(775,77): error TS1005: ')' expected.
+../../Library/Application Support/Code/User/History/49822e53/q6IP.tsx(775,77): error TS1005: '</' expected.
+../../Library/Application Support/Code/User/History/49822e53/sAF0.tsx(274,6): error TS17008: JSX element 'div' has no corresponding closing tag.
+../../Library/Application Support/Code/User/History/49822e53/sAF0.tsx(302,8): error TS17008: JSX element 'div' has no corresponding closing tag.
+../../Library/Application Support/Code/User/History/49822e53/sAF0.tsx(302,50): error TS1005: '</' expected.
+../../Library/Application Support/Code/User/History/49822e53/ya3S.tsx(274,6): error TS17008: JSX element 'div' has no corresponding closing tag.
+../../Library/Application Support/Code/User/History/49822e53/ya3S.tsx(302,8): error TS17008: JSX element 'div' has no corresponding closing tag.
+../../Library/Application Support/Code/User/History/49822e53/ya3S.tsx(532,15): error TS1005: '</' expected.
+../../Library/Application Support/Code/User/History/49822e53/Yw2s.tsx(274,6): error TS17008: JSX element 'div' has no corresponding closing tag.
+../../Library/Application Support/Code/User/History/49822e53/Yw2s.tsx(720,8): error TS17008: JSX element 'div' has no corresponding closing tag.
+../../Library/Application Support/Code/User/History/49822e53/Yw2s.tsx(775,77): error TS1005: ')' expected.
+../../Library/Application Support/Code/User/History/49822e53/Yw2s.tsx(775,77): error TS1005: '</' expected.

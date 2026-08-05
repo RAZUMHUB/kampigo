@@ -188,8 +188,8 @@ export class MatchingService {
     ]);
     if (!lostItem || !foundItem) return;
 
-    const lostImageVectors = lostItem.images.map((i) => (i.embedding as any)?.vector).filter(Boolean);
-    const foundImageVectors = foundItem.images.map((i) => (i.embedding as any)?.vector).filter(Boolean);
+    const lostImageVectors = lostItem.images.map((i: any) => (i.embedding as any)?.vector).filter(Boolean);
+    const foundImageVectors = foundItem.images.map((i: any) => (i.embedding as any)?.vector).filter(Boolean);
 
     const scores = await this.mlClient.scoreCandidate({
       lostImageVectors,
@@ -208,8 +208,8 @@ export class MatchingService {
         primaryColor: foundItem.primaryColor,
         secondaryColor: foundItem.secondaryColor,
       },
-      lostOcrText: lostItem.images.map((i) => i.ocrText).filter(Boolean) as string[],
-      foundOcrText: foundItem.images.map((i) => i.ocrText).filter(Boolean) as string[],
+      lostOcrText: lostItem.images.map((i: any) => i.ocrText).filter(Boolean) as string[],
+      foundOcrText: foundItem.images.map((i: any) => i.ocrText).filter(Boolean) as string[],
     });
 
     const locationScore = lostItem.campusId && lostItem.campusId === foundItem.campusId ? 1 : 0.3;

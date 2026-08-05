@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import helmet from 'helmet';
-import { ValidationPipe, BadRequestException } from '@nestjs/common';
+import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import { RequestIdMiddleware } from './common/interceptors/request-id.middleware';
@@ -23,15 +23,6 @@ async function bootstrap() {
       whitelist: true,
       forbidNonWhitelisted: true,
       transform: true,
-      stopAtFirstError: false,
-      exceptionFactory: (errors) =>
-        new BadRequestException({
-          message: 'Validation failed',
-          errors: errors.map((e) => ({
-            field: e.property,
-            errors: Object.values(e.constraints ?? {}),
-          })),
-        }),
     }),
   );
   app.useGlobalFilters(new HttpExceptionFilter());

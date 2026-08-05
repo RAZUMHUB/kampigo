@@ -35,7 +35,7 @@ export class AlertFanoutProcessor extends WorkerHost {
     if (alert.status === 'SENT') return; // idempotent - already processed
 
     const devices = await this.devicesService.getEligibleDevices(alert.universityId);
-    const tokens = devices.map((d) => d.pushToken);
+    const tokens = devices.map((d: any) => d.pushToken);
 
     const results = await this.fcm.sendBatch(tokens, {
       title: 'University Lost Item Alert',
@@ -43,7 +43,7 @@ export class AlertFanoutProcessor extends WorkerHost {
       data: { alertId: alert.id, type: 'UNIVERSITY_LOST_ITEM_ALERT' },
     });
 
-    const sentCount = results.filter((r) => r.success).length;
+    const sentCount = results.filter((r: any) => r.success).length;
     const failedCount = results.length - sentCount;
 
     for (const result of results) {

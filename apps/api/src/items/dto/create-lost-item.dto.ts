@@ -1,5 +1,5 @@
 import { Type } from 'class-transformer';
-import { IsDateString, IsOptional, IsString, IsUUID, MaxLength, ValidateNested } from 'class-validator';
+import { IsDateString, IsOptional, IsString, MaxLength, ValidateNested } from 'class-validator';
 
 export class PrivateOwnershipDetailsDto {
   @IsOptional() @IsString() @MaxLength(500) exactKeyCount?: string;
@@ -11,7 +11,7 @@ export class PrivateOwnershipDetailsDto {
 }
 
 export class CreateLostItemDto {
-  @IsOptional() @IsUUID() categoryId?: string;
+  @IsOptional() @IsString() categoryId?: string;
   @IsString() @MaxLength(120) title: string;
   @IsString() @MaxLength(2000) description: string;
   @IsOptional() @IsString() @MaxLength(80) brand?: string;
@@ -20,8 +20,8 @@ export class CreateLostItemDto {
   @IsOptional() @IsString() @MaxLength(40) secondaryColor?: string;
   @IsOptional() @IsString() @MaxLength(500) distinctiveMarks?: string;
 
-  @IsOptional() @IsUUID() campusId?: string;
-  @IsOptional() @IsUUID() buildingId?: string;
+  @IsOptional() @IsString() campusId?: string;
+  @IsOptional() @IsString() buildingId?: string;
   @IsOptional() @IsString() @MaxLength(80) floorOrZone?: string;
   @IsOptional() @IsString() @MaxLength(150) nearbyLandmark?: string;
 

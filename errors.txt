@@ -1,0 +1,6 @@
+[96msrc/items/dto/create-found-item.dto.ts[0m:[93m1[0m:[93m44[0m - [91merror[0m[90m TS2300: [0mDuplicate identifier 'IsString'.
+[96msrc/items/dto/create-found-item.dto.ts[0m:[93m1[0m:[93m54[0m - [91merror[0m[90m TS2300: [0mDuplicate identifier 'IsString'.
+[96msrc/items/dto/create-lost-item.dto.ts[0m:[93m2[0m:[93m36[0m - [91merror[0m[90m TS2300: [0mDuplicate identifier 'IsString'.
+[96msrc/items/dto/create-lost-item.dto.ts[0m:[93m2[0m:[93m46[0m - [91merror[0m[90m TS2300: [0mDuplicate identifier 'IsString'.
+[96msrc/items/dto/search-items.dto.ts[0m:[93m1[0m:[93m22[0m - [91merror[0m[90m TS2300: [0mDuplicate identifier 'IsString'.
+[96msrc/items/dto/search-items.dto.ts[0m:[93m1[0m:[93m32[0m - [91merror[0m[90m TS2300: [0mDuplicate identifier 'IsString'.

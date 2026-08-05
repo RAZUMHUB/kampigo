@@ -16,6 +16,7 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1085.0",
     "@aws-sdk/s3-request-presigner": "^3.1085.0",
+    "@dataconnect/admin-generated": "file:src/dataconnect-admin-generated",
     "@googlemaps/google-maps-services-js": "^3.4.2",
     "@nestjs/bullmq": "^10.2.0",
     "@nestjs/common": "^10.4.4",
